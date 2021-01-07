@@ -14,17 +14,11 @@
 #         )
 #     ]
 # )
+from naivesearch import InvertedIndex
+
 
 def split_sentence(s):
     return list(s)
-
-
-class InvertedIndex:
-    def __init__(self, path_to_file, chunkers):
-        pass
-
-    def __getitem__(self, q):
-        return ['hoge', 'hoo']
 
 
 index = InvertedIndex(

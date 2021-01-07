@@ -8,6 +8,7 @@ authors = ["Your Name <you@example.com>"]
 python = "3.8.6"
 
 [tool.poetry.dev-dependencies]
+mypy = "^0.790"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

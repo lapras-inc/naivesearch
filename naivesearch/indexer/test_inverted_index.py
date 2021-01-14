@@ -6,13 +6,23 @@ class TestInvertedIndex:
         def dummy_chunker(x):
             return list(x)
 
+        def dummy_chunker2(x):
+            return list(x.upper())
+
+        data = [
+            'hello world',
+            'good bye world',
+            'good morning world',
+        ]
+
         index = InvertedIndex(
-            '/path/to/hoge',
+            # TODO: pycharm だと型が Reader じゃないと怒られる
+            data,
             [
                 dummy_chunker,
+                dummy_chunker2,
             ],
         )
 
-        assert 'hoge' in index['ho']
-        assert 'hoo' in index['ho']
-        assert 'foo' not in index['ho']
+        assert 'hello world' in index['h']
+        assert 'hello world' in index['H']

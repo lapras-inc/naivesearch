@@ -14,18 +14,18 @@
 #         )
 #     ]
 # )
-from naivesearch import InvertedIndex
-
-
-def split_sentence(s):
-    return list(s)
-
-
-index = InvertedIndex(
-    '/path/to/file', # FileReader('/path/to/file')
-    [
-        split_sentence
-    ]
-)
-
-print(index['ho']) #=> [hoge, hooo]
+# from naivesearch import InvertedIndex
+#
+#
+# def split_sentence(s):
+#     return list(s)
+#
+#
+# index = InvertedIndex(
+#     '/path/to/file', # FileReader('/path/to/file')
+#     [
+#         split_sentence
+#     ]
+# )
+#
+# print(index['ho']) #=> [hoge, hooo]

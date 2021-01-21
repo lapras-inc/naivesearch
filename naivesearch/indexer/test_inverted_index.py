@@ -28,18 +28,3 @@ class TestInvertedIndex:
         assert 'hello world' in index['h']
         assert 'hello world' in index['H']
 
-        # sample desu
-        Formatter = Callable[[str], str]
-
-        class UpperCaseFormatter:
-            def __call__(self, x: str) -> str:
-                return x.upper()
-
-        class CharacterChunker:
-            def __init__(self, formatter: Optional[Formatter]):
-                self.formatter = formatter
-            def __call__(self, x: str) -> List[str]:
-                return list(self.formatter(x) if self.formatter else x)
-
-        chunker = CharacterChunker(UpperCaseFormatter())
-        assert chunker('heelo') == ['H', 'E', 'E', 'L', 'O']

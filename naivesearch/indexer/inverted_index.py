@@ -2,14 +2,12 @@ import logging
 
 from collections import defaultdict
 from typing import Dict, List, Protocol, Iterable
+from .chunker import Chunker
 
 
 logger = logging.getLogger(__name__)
 
 
-class Chunker(Protocol):
-    def __call__(self, inputs: str) -> List[str]:
-        ...
 
 
 class Reader(Iterable[str]):

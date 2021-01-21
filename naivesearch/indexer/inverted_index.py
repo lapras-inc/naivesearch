@@ -1,12 +1,19 @@
 import logging
 
 from collections import defaultdict
-from typing import Dict, List
+from typing import Dict, List, Protocol, Iterable
 
-from .types import Chunker, Reader
 
 logger = logging.getLogger(__name__)
 
+
+class Chunker(Protocol):
+    def __call__(self, inputs: str) -> List[str]:
+        ...
+
+
+class Reader(Iterable[str]):
+    pass
 
 class InvertedIndex:
     index: Dict[str, List[str]] = defaultdict(list)

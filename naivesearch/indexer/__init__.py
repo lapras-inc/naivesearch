@@ -1,7 +1,8 @@
-from .inverted_index import InvertedIndex
-from .types import Chunker
+from .inverted_index import Chunker, InvertedIndex, Reader
 
 
 __all__ = [
-    'InvertedIndex'
+    'Chunker',
+    'InvertedIndex',
+    'Reader',
 ]

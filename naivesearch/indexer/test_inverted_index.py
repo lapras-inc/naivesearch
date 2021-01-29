@@ -27,4 +27,10 @@ class TestInvertedIndex:
 
         assert 'hello world' in index['h']
         assert 'hello world' in index['H']
+        assert 'hello world' in index['hello']
+
+        assert 'hello world' not in index['へ']
+
+        assert 'good bye world' in index['good b']
+        assert 'good morning world' not in index['good b']
 

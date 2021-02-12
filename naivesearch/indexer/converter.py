@@ -7,4 +7,4 @@ class BigramConverter:
 
     def __call__(self, x: str):
         s = self.chuker(x)
-        return [''.join(z) for z in zip(s[0:], s[1:])]
+        return s + [''.join(z) for z in zip(s[0:], s[1:])]

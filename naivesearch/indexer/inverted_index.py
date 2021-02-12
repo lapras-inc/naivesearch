@@ -26,7 +26,6 @@ class InvertedIndex:
         logger.info('Done indexing.')
 
     def __getitem__(self, q):
-
         chunks = []
         for chunker in self.chunkers:
             for chunk in chunker(q):

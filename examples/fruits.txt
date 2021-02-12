@@ -9,7 +9,8 @@ Grape
 Mango
 Blueberry
 Pomegranate
-Carambola(U.K) – starfruit (U.S)
+Carambola
+starfruit
 Plum
 Banana
 Raspberry
@@ -25,4 +26,4 @@ Grapefruit
 Melon
 Coconut
 Avocado
-Peachモン
+Peach

@@ -11,11 +11,12 @@ logger = logging.getLogger(__name__)
 class Reader(Iterable[str]):
     pass
 
+
 class InvertedIndex:
-    index: Dict[str, List[str]] = defaultdict(list)
     chunkers: List[Chunker]
 
     def __init__(self, reader: Reader, chunkers: List[Chunker]):
+        self.index: Dict[str, List[str]] = defaultdict(list)
         self.chunkers = chunkers
 
         logger.info('Start indexing.')
@@ -40,4 +41,3 @@ class InvertedIndex:
             result = result & chain
 
         return list(result)
-

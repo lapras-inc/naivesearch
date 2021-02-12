@@ -1,7 +1,8 @@
 from naivesearch.indexer import InvertedIndex
-from naivesearch.indexer.formatter import UnicodeNormalizer
+from naivesearch.indexer.formatter import UnicodeNormalizer, LowerCaseNormalizer
 from naivesearch.indexer.converter import BigramConverter
 from naivesearch.indexer.chunker import CharacterChunker
+
 
 def naivesearch(filepath: str):
 
@@ -13,8 +14,8 @@ def naivesearch(filepath: str):
     index = InvertedIndex(
         file_reader(filepath),
         [
-            BigramConverter(CharacterChunker(UnicodeNormalizer()))
+            # BigramConverter(CharacterChunker(UnicodeNormalizer())),
+            BigramConverter(CharacterChunker(LowerCaseNormalizer()))
         ]
     )
     return index
-

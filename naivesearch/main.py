@@ -14,8 +14,10 @@ def naivesearch(filepath: str):
     index = InvertedIndex(
         file_reader(filepath),
         [
-            # BigramConverter(CharacterChunker(UnicodeNormalizer())),
-            BigramConverter(CharacterChunker(LowerCaseNormalizer()))
+            BigramConverter(CharacterChunker([
+                UnicodeNormalizer(),
+                LowerCaseNormalizer(),
+            ]))
         ]
     )
     return index

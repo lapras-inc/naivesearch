@@ -15,8 +15,7 @@ def naivesearch(filepath: str):
         file_reader(filepath),
         [
             BigramConverter(CharacterChunker([
-                UnicodeNormalizer(),
-                LowerCaseNormalizer(),
+                UnicodeNormalizer(LowerCaseNormalizer()),
             ]))
         ]
     )

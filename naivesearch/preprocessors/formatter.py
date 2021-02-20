@@ -1,13 +1,7 @@
 import unicodedata
-from typing import Callable, Optional, Protocol
+from typing import Optional
 
-
-class Formatter(Protocol):
-    def __init__(self, other: Optional['Formatter'] = None, **kwargs):
-        ...
-
-    def __call__(self, x: str) -> str:
-        ...
+from naivesearch.indexer import Formatter
 
 
 class UnicodeNormalizer:

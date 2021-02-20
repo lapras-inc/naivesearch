@@ -1,17 +1,16 @@
 from returns.curry import partial
-from typing import Callable, Type
 
-from naivesearch.indexer import InvertedIndex
-from naivesearch.indexer.formatter import UnicodeNormalizer, LowerCaseNormalizer, Formatter
-from naivesearch.indexer.converter import BigramConverter
-from naivesearch.indexer.chunker import CharacterChunker, Chunker
+from naivesearch.indexer import compose_preprocessors, InvertedIndex
+from naivesearch.preprocessors import UnicodeNormalizer, LowerCaseNormalizer
+from naivesearch.preprocessors import BigramConverter
+from naivesearch.preprocessors import CharacterChunker
 
 
 def naivesearch(filepath: str):
     index = InvertedIndex(
         file_reader(filepath),
         [
-            composed(
+            compose_preprocessors(
                 BigramConverter,
                 CharacterChunker,
                 LowerCaseNormalizer,
@@ -20,17 +19,6 @@ def naivesearch(filepath: str):
         ]
     )
     return index
-
-
-def composed(
-        converter: Type[BigramConverter],
-        chunker: Type[Chunker],
-        *formatters: Callable[..., Formatter],
-):
-    result = None
-    for x in reversed(formatters):
-        result = x(result)
-    return converter(chunker(result))
 
 
 def file_reader(filepath):

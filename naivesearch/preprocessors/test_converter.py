@@ -1,6 +1,3 @@
-from naivesearch import InvertedIndex
-from typing import Callable, List, Optional
-
 from .converter import BigramConverter
 from .formatter import UnicodeNormalizer
 

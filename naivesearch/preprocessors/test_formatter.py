@@ -1,8 +1,6 @@
 from unittest.mock import Mock
-from typing import Callable, List, Optional
 
 from .formatter import UnicodeNormalizer, LowerCaseNormalizer
-from naivesearch import InvertedIndex
 
 
 class TestFormatter:

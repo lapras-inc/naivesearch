@@ -1,9 +1,9 @@
 from typing import Callable, List, Optional
 
-from naivesearch import InvertedIndex
-from naivesearch.indexer.formatter import UnicodeNormalizer, LowerCaseNormalizer
-from naivesearch.indexer.converter import BigramConverter
-from naivesearch.indexer.chunker import CharacterChunker
+from naivesearch.indexer import InvertedIndex
+from naivesearch.preprocessors import UnicodeNormalizer, LowerCaseNormalizer
+from naivesearch.preprocessors import BigramConverter
+from naivesearch.preprocessors import CharacterChunker
 
 
 class TestInvertedIndex:

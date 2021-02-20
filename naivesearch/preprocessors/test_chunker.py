@@ -1,6 +1,3 @@
-from naivesearch import InvertedIndex
-from typing import Callable, List, Optional
-
 from .chunker import CharacterChunker
 from .formatter import LowerCaseNormalizer, UnicodeNormalizer
 

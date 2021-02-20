@@ -14,9 +14,9 @@ def naivesearch(filepath: str):
     index = InvertedIndex(
         file_reader(filepath),
         [
-            BigramConverter(CharacterChunker([
+            BigramConverter(CharacterChunker(
                 UnicodeNormalizer(LowerCaseNormalizer()),
-            ]))
+            ))
         ]
     )
     return index

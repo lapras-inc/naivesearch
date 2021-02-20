@@ -56,10 +56,9 @@ class TestInvertedIndex:
         index = InvertedIndex(
             reader(),
             [
-                BigramConverter(CharacterChunker([
+                BigramConverter(CharacterChunker(
                     UnicodeNormalizer(LowerCaseNormalizer()),
-                    # LowerCaseNormalizer(),
-            ]))
+                ))
             ]
         )
 

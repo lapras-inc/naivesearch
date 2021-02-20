@@ -120,6 +120,17 @@ toml = "*"
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
 
 [[package]]
+name = "returns"
+version = "0.15.0"
+description = "Make your functions return something meaningful, typed, and safe!"
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[package.dependencies]
+typing-extensions = ">=3.7,<4.0"
+
+[[package]]
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
@@ -139,14 +150,14 @@ python-versions = "*"
 name = "typing-extensions"
 version = "3.7.4.3"
 description = "Backported and Experimental Type Hints for Python 3.5+"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
 [metadata]
 lock-version = "1.1"
 python-versions = "3.8.6"
-content-hash = "5a24fa586b6be7168931c0d91a61f74c11339b123c1c421a5c89ed33bccc2373"
+content-hash = "b14c70010af993153536ac2691766153e6dbd2dfa785f0cb6ddc69f50e13e19a"
 
 [metadata.files]
 atomicwrites = [
@@ -204,6 +215,10 @@ pyparsing = [
 pytest = [
     {file = "pytest-6.2.1-py3-none-any.whl", hash = "sha256:1969f797a1a0dbd8ccf0fecc80262312729afea9c17f1d70ebf85c5e76c6f7c8"},
     {file = "pytest-6.2.1.tar.gz", hash = "sha256:66e419b1899bc27346cb2c993e12c5e5e8daba9073c1fbce33b9807abc95c306"},
+]
+returns = [
+    {file = "returns-0.15.0-py3-none-any.whl", hash = "sha256:5c96ca1c3ec12051ea159c1115470520d83ad0413c461b98f94b0f8f88b57ad6"},
+    {file = "returns-0.15.0.tar.gz", hash = "sha256:32f0595da0a1e2401520204eee64cae937fedaf95c516e892287e0c9275d3f6b"},
 ]
 toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},

@@ -1,8 +1,8 @@
 import logging
-
 from collections import defaultdict
-from typing import Dict, List, Protocol, Iterable
-from .chunker import Chunker
+from typing import Dict, List, Protocol, Iterable, Union
+
+from .preprocess_composer import Chunker, Converter
 
 
 logger = logging.getLogger(__name__)
@@ -13,9 +13,13 @@ class Reader(Iterable[str]):
 
 
 class InvertedIndex:
-    chunkers: List[Chunker]
+    chunkers: List[Converter]
 
-    def __init__(self, reader: Reader, chunkers: List[Chunker]):
+    def __init__(
+            self,
+            reader: Reader,
+            chunkers: List[Union[Chunker, Converter]]
+    ):
         self.index: Dict[str, List[str]] = defaultdict(list)
         self.chunkers = chunkers
 
@@ -26,7 +30,7 @@ class InvertedIndex:
                     self.index[chunk].append(d)
         logger.info('Done indexing.')
 
-    def __getitem__(self, q):
+    def __getitem__(self, q) -> List[str]:
         chunks = []
         for chunker in self.chunkers:
             for chunk in chunker(q):

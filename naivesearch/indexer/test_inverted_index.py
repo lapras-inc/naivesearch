@@ -1,5 +1,9 @@
-from naivesearch import InvertedIndex
 from typing import Callable, List, Optional
+
+from naivesearch.indexer import InvertedIndex
+from naivesearch.preprocessors import UnicodeNormalizer, LowerCaseNormalizer
+from naivesearch.preprocessors import BigramConverter
+from naivesearch.preprocessors import CharacterChunker
 
 
 class TestInvertedIndex:
@@ -34,3 +38,29 @@ class TestInvertedIndex:
         assert 'good bye world' in index['good b']
         assert 'good morning world' not in index['good b']
 
+    def test_instantiate_composed_formatters(self):
+        jinkou1 = '人口'
+        jinkou2 = '⼈⼝'
+        upper = 'UPPER'
+        lower = 'upper'
+
+        assert jinkou1 != jinkou2
+
+        def reader():
+            yield jinkou1
+            yield upper
+            yield 'hello world'
+            yield 'good bye world'
+            yield 'good morning world'
+
+        index = InvertedIndex(
+            reader(),
+            [
+                BigramConverter(CharacterChunker(
+                    UnicodeNormalizer(LowerCaseNormalizer()),
+                ))
+            ]
+        )
+
+        assert jinkou1 in index[jinkou2]
+        assert upper in index[lower]
